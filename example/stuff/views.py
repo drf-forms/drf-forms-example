@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.views.generic import FormView
 
-# Create your views here.
+from rest_framework import viewsets
+
+from .models import People
+from .serializers import PeopleSerializer
+
+
+class PeopleViewSet(viewsets.ModelViewSet):
+    queryset = People.objects.all()
+    serializer_class = PeopleSerializer
